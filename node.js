@@ -20,11 +20,37 @@ fs.readFile('calc.js',function (err,data){
 }
 )
  */
+/////////////////////////////////////
+///reading a json file
+ var fs = require('fs')
 
+fs.readFile("./names.json",(err,data)=>{
+  if(err){
+    console.log(err)
+  }else{
+    let obj= JSON.parse(data)
+    console.log(obj[0].name)
+  }
+}) 
 //create file
-/* //write file
+ //write file
 var fs = require('fs');
 
+///writing a json file
+const object={
+"name":"ranji",
+"age":24
+}
+
+fs.writeFile("./newnames.json",JSON.stringify(object,null,2),(err)=>{
+  
+  if(err){
+    console.log(err)
+  }else{
+    console.log("file succesfully written")
+  }
+})
+/*
 fs.writeFile('calc1.js', 'Hello content!', function (err) {  //it removes the content and add new content
   if (err) throw err;
   console.log('Saved!');
@@ -93,3 +119,4 @@ app.get('/jasee', function (req, res) {
 app.listen(9000,function(req,res){
   console.log("running...")
 }); */
+
